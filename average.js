@@ -4,7 +4,6 @@ $(document).ready(function() {
     $('#average')
         .css('float', 'right')
         .click(getAverage)
-    return;
 })
 
 function getAverage(e) {
@@ -12,10 +11,16 @@ function getAverage(e) {
     let sum = 0,
         average = 0,
         cells = $('tr.trKardexGris td:nth-child(4)')
-    cells.each(function() {
-        sum += Number.parseFloat($(this).text())
-    })
+    try {
+        cells.each(function() {
+            sum += Number.parseFloat($(this).text())
+        })
+    } catch (ex) {
+        alert('Error: No se pudo calcular el promedio')
+        console.log(ex);
+        return;
+    }
+
     average = sum / cells.length
     $('#average').text(`Promedio: ${average.toFixed(2)}`)
-    return;
 }
