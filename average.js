@@ -18,8 +18,8 @@ function getAverage(e) {
     })
     average = sum / cells.length
   } catch (ex) {
+    console.log(ex)
     alert('Error: No se pudo calcular el promedio')
-    console.log(ex);
     return;
   }
   $('#average').text(`Promedio: ${average.toFixed(2)}`)
