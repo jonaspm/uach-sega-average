@@ -16,11 +16,11 @@ function getAverage(e) {
   try {
 
     rows.each(function() {
-      const status = this.children[8].innerText
+      let status = this.children[8].innerText
 //      console.log('Status', status)
       if (status == 'NA') return invalidRows++;
 
-      const CO = Number.parseFloat(this.children[3].innerText),
+      let CO = Number.parseFloat(this.children[3].innerText),
             CNO = Number.parseFloat(this.children[4].innerText)
 //      console.log('CO', CO)
 //      console.log('CNO', CNO)

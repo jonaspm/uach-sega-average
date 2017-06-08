@@ -2,6 +2,7 @@
   "manifest_version": 2,
   "name": "UACH SEGA Average",
   "version": "1.1.0",
+  "default_locale": "es",
   "description": "Calcula el promedio de un estudiante en UACH SEGA Kardex",
   "homepage_url": "https://github.com/jonaspm/uach-sega-average",
   "author": "Jonás Perusquía Morales",
@@ -13,5 +14,8 @@
       "matches": ["*://*.sega.uach.mx/sega/kardex/*"],
       "js": ["jquery.slim.min.js", "average.js"]
     }
-  ]
+  ],
+  "background": {
+    "persistent": false
+  },
 }
