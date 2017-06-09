@@ -6,7 +6,8 @@
   "homepage_url": "https://github.com/jonaspm/uach-sega-average",
   "author": "Jonás Perusquía Morales",
   "icons": {
-    "32": "icons/icon.png"
+    "32": "icons/icon-32.png",
+    "128": "icons/icon-128.png"
   },
   "content_scripts": [
     {
