@@ -1,38 +1,33 @@
-$(document).ready(function() {
-  $('#content-title')
-    .append(`<strong title="Presióname" id="average">Promedio: Presiona Aquí</strong>`)
-  $('#average')
-    .css('float', 'right')
-    .click(getAverage)
-})
-
-function getAverage(e) {
-  e.preventDefault()
+function getAverage() {
   let sum = 0,
       average = 0,
       invalidRows = 0,
-      rows = $('tr.trKardexGris')
+      rows = document.querySelectorAll('tr.trKardexGris')
 
   try {
-
-    rows.each(function() {
-      let status = this.children[8].innerText
+    for(let row of rows) {
+      let status = row.children[8].innerText
 //      console.log('Status', status)
-      if (status == 'NA') return invalidRows++;
+      if (status == 'NA') {
+        invalidRows++
+        continue
+      }
 
-      let CO = Number.parseFloat(this.children[3].innerText),
-            CNO = Number.parseFloat(this.children[4].innerText)
+      let CO = Number.parseFloat(row.children[3].innerText),
+          CNO = Number.parseFloat(row.children[4].innerText)
 //      console.log('CO', CO)
 //      console.log('CNO', CNO)
       if (
         status == 'AC' &&
         CNO > 0.00 &&
         CO < 6.00
-      )
-        return sum += CNO
+      ) {
+        sum += CNO
+        continue
+      }
 
-        return sum += CO
-    })
+        sum += CO
+    }
 
     average = sum / (rows.length - invalidRows)
 
@@ -41,5 +36,5 @@ function getAverage(e) {
     alert('Error: No se pudo calcular el promedio')
     return 0
   }
-  $('#average').text(`Promedio: ${average.toFixed(2)}`)
+  averageElement.innerText = `Promedio: ${average.toFixed(3)}`
 }
