@@ -1,8 +1,13 @@
-function getAverage() {
+/*
+  getAverage: return undefined
+  arguments:
+    rows: tr elements that contain the required information for
+    the average calculation.
+*/
+function getAverage(rows) {
   let sum = 0,
       average = 0,
-      invalidRows = 0,
-      rows = document.querySelectorAll('tr.trKardexGris')
+      invalidRows = 0
 
   try {
     for(let row of rows) {

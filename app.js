@@ -6,4 +6,6 @@ const averageElement = document.querySelector('#average')
 
 averageElement.setAttribute('style', 'float:right;')
 
-averageElement.addEventListener('click', getAverage, false)
+averageElement.addEventListener('click',
+  () => getAverage(document.querySelectorAll('tr.trKardexGris')),
+  false)
